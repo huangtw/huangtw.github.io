@@ -11,7 +11,8 @@ tags: []
 
 本文將會介紹Chrome Extension的基本架構以及開發流程。
 
-##基本架構
+<!--more-->
+
 跟開發網頁一樣。Chrome Extension是由HTML,CSS,Javascript來開發。所有extension需要用到的檔案都會放在同一個資料夾底下。
 
 內容大致如下：
@@ -20,23 +21,24 @@ tags: []
 - **backgroung.js :** 檔名並不限定，必須宣告在manifest.json內，啟動extension時會從這些js開始執行（沒錯是"這些"，因為可以有好幾個檔，下面會解釋！）
 - **其他:** html,css,js,圖片檔...等等
 
-##開發流程
 ###manifest.json
 首先，我們必須先在manifest.json內宣告一些必要的資訊
 
-	{
-	  "name": "Hello World",
-	  "version": "1.0",
-	  "description": "Testing...",
-	  "background": {
-	    "scripts": [
-	    	"helloA.js",
-	    	"helloB.js",
-	    	"helloC.js"
-	    ]
-	  },
-	  "manifest_version": 2
-	}
+{% highlight javascript %}
+{
+  "name": "Hello World",
+  "version": "1.0",
+  "description": "Testing...",
+  "background": {
+    "scripts": [
+    	"helloA.js",
+    	"helloB.js",
+    	"helloC.js"
+    ]
+  },
+  "manifest_version": 2
+}
+{% endhighlight %}
 
 大致的意義如下：
 
@@ -49,11 +51,17 @@ tags: []
 接下來是javascript的內容，三個js檔的內容如下
 
 **helloA.js**
-	console.log("Hello World");
+{% highlight javascript %}
+console.log("Hello World");
+{% endhighlight %}
 **helloB.js**
-	console.log("Hello Word!!");
+{% highlight javascript %}
+console.log("Hello Word!!");
+{% endhighlight %}
 **helloC.js**
-	console.log("Hello Excel!?");
+{% highlight javascript %}
+console.log("Hello Excel!?");
+{% endhighlight %}
 
 此時做為一個Chrome Extension的基本元件都有了，可以來進行簡單的測試了！
 
@@ -63,16 +71,16 @@ tags: []
 1. **設定>擴充功能** (或者直接在網址列輸入**chrome://extensions/**)  
 2. 勾選 **開發人員模式**
 3. **載入未封裝擴充功能**  
-<img src="/img/chrome_extension/hello_world/load.jpg"/>
+<img src="/images/chrome_extension_hello/load.jpg"/>
 4. **載入檔案所在的資料夾**
    
 ###觀看執行結果
 此時可以看我們的Extension已經出現在擴充功能的清單中。不過要去哪裡看執行的結果呢？
 
 - 點選 **查看檢視模式** 旁邊的 **_generated_background_page.html**
-<img src="/img/chrome_extension/hello_world/generated_background.jpg"/>
+<img src="/images/chrome_extension_hello/generated_background.jpg"/>
 - 在 **Console** 中可以看到執行的結果
-<img src="/img/chrome_extension/hello_world/console.jpg"/>
+<img src="/images/chrome_extension_hello/console.jpg"/>
 
 從console的log訊息可以看出，三個javascript的執行順序分別為 **helloA.js** > **helloB.js** > **helloC.js**  
 可見執行的順序跟manifest中宣告的順序一致，載入多個background script時必須特別注意

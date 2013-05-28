@@ -1,0 +1,38 @@
+---
+layout: page
+title: HUANGTW
+tagline: Always Be Coding...
+---
+{% include JB/setup %}
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <p class="author">
+    <span class="date">{{ post.date | date_to_string }}</span>
+  </p>
+  <div class="content">
+    {{ post.content | split:'<!--more-->' | first }}
+    <span>...<span>
+    <a href="{{ post.url }}">more</a>
+  </div>
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a href="/" class="previous">Previous</a>
+    {% else %}
+      <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
+    {% endif %}
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">| {{ paginator.page }} of {{ paginator.total_pages }} |</span>
+  {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
