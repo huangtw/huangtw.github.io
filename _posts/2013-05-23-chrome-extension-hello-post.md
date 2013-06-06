@@ -24,7 +24,7 @@ tags: []
 ###manifest.json
 首先，我們必須先在manifest.json內宣告一些必要的資訊
 
-{% highlight javascript %}
+{% highlight json %}
 {
   "name": "Hello World",
   "version": "1.0",
