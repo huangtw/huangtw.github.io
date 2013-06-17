@@ -9,9 +9,10 @@ tags: []
 
 Chrome Extension除了可以背景執行javascript外，最重要的是它可以變成Chrome瀏覽器的一部分，這樣才算一個名符其實的"擴充功能"，因此chrome提供了幾個API讓extension可以把自己融入到Chrome的browser UI中。
 
-本文將簡單介紹各種Browser Action、Page Actions、Context Menus、Desktop Notifications的用法。
-
+本文將簡單介紹Browser Action、Page Actions、Context Menus、Desktop Notifications的用法。
 <!--more-->
+以下使用的範例程式可在以下網址取得   
+<https://github.com/huangtw/ChromeExtensionExamples/tree/master/browserUI>
 
 ###Browser Actions
 Browser Action是一個很常見的Browser UI，它可以在Chrome網址列的右邊增加一個按鈕。很多Chrome Extension都透過Browser Action來與使用者互動。  
@@ -39,7 +40,7 @@ Browser Action是一個很常見的Browser UI，它可以在Chrome網址列的�
 - **default_title:** 當滑鼠停在按鈕上時顯示的提示
 
 測試一下！果然已經多出了一個按鈕，輕輕鬆鬆！   
-<img src="/images/chrome_extension_browser_ui/browser_action.jpg"/>
+<img src="/images/chrome_extension_browser_ui_1/browser_action.jpg"/>
 
 ###Page Actions
 相較於Browser Action是適用於每一個網頁，Page Action則是針對特定的網站或者特定內容的網頁。   
@@ -93,8 +94,8 @@ chrome.tabs.onUpdated.addListener(checkForValidUrl);
 當tab連結到一個URL或者重新整理時，Page Action預設是隱藏的，當我們呼叫了show才會出現在tab的網址列右邊。此時如果我們連結到別的URL，Page Action會再次隱藏。
 
 測試一下！只有在google才會顯示Page Action，在youtube則隱藏   
-<img src="/images/chrome_extension_browser_ui/page_action_show.jpg"/>   
-<img src="/images/chrome_extension_browser_ui/page_action_hide.jpg"/>
+<img src="/images/chrome_extension_browser_ui_1/page_action_show.jpg"/>   
+<img src="/images/chrome_extension_browser_ui_1/page_action_hide.jpg"/>
 
 ###Context Menus
 Context Menu讓你可以在網頁內點選右鍵出現的選單內，加入屬於這個chrome extension的項目。
@@ -163,13 +164,12 @@ Page"的項目，而"Link"跟"Image"則分別會在右鍵點擊超連結與圖�
 
 此外我們還增加了一個"Page or Link"項目，由於他的contexts包含"page"與"link"，因此在網頁任意處或者超連結上按右鍵都會出現
 
-測試一下！
-
-<img src="/images/chrome_extension_browser_ui/context_menu_page.jpg"/>   
-<img src="/images/chrome_extension_browser_ui/context_menu_link.jpg"/>   
+測試一下！   
+<img src="/images/chrome_extension_browser_ui_1/context_menu_page.jpg"/>   
+<img src="/images/chrome_extension_browser_ui_1/context_menu_link.jpg"/>   
 Page與Link分別顯是在空白處與超連結的右鍵選單，而Page and Link則都會出現。由於項目有多個，因此會以子選單的方式來呈現
 
-<img src="/images/chrome_extension_browser_ui/context_menu_image.jpg"/>   
+<img src="/images/chrome_extension_browser_ui_1/context_menu_image.jpg"/>   
 在圖片上按右鍵只會有Image，由於只有一項，因此不會有子選單
 
 ###Desktop Notifications
@@ -226,8 +226,7 @@ setTimeout(function (){
 
 值得注意的是，一個notification canceal之後，它的生命周期就結束了，再呼叫show也不會出現。
 
-測試一下！
-
-<img src="/images/chrome_extension_browser_ui/desktop_notification.jpg"/>    
+測試一下！   
+<img src="/images/chrome_extension_browser_ui_1/desktop_notification.jpg"/>    
 
 下次將會繼續介紹Omnibox、Options Pages、Override Pages的使用方式！

@@ -12,6 +12,8 @@ tags: []
 本文將會介紹Chrome Extension的基本架構以及開發流程。
 
 <!--more-->
+以下使用的範例程式可在以下網址取得   
+<https://github.com/huangtw/ChromeExtensionExamples/tree/master/hello>
 
 跟開發網頁一樣。Chrome Extension是由HTML,CSS,Javascript來開發。所有extension需要用到的檔案都會放在同一個資料夾底下。
 
