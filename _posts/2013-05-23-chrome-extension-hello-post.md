@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chrome Extension 開發初體驗"
+title: "[Chrome Extension] 開發初體驗"
 description: ""
 category: 
 tags: []

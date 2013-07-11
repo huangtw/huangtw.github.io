@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chrome Extension Browser UI (1)"
+title: "[Chrome Extension] Browser UI (1)"
 description: ""
 category: 
 tags: []
