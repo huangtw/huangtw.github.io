@@ -12,7 +12,7 @@ tags: []
 
 <!--more-->
 本文的程式原始碼可在以下網址取得  
-<https://github.com/huangtw/UDTReuseAddrTest>
+<https://github.com/huangtw/UDPReuseAddrTest>
 
 ###SO_REUSEADDR
 
